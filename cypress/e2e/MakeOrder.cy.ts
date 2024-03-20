@@ -8,14 +8,6 @@ describe('Tests for delivery methods', () => {
     const loginpage=new LoginPage
     const makeOrder= new MakeOrder
 
-  before(() => {
-    // cy.ignoreUnexpectedIdentifier();
-    // cy.ignoreHttpErrors();
-    // cy.loginAndSetApiToken();
-    // cy.fixture('applicationCreating').then((data)=>{
-    //   testData=data;})
-  })
-
   beforeEach(() =>{
     // cy.loginUsingSettingUpToken();
     loginpage.actions.visit()
