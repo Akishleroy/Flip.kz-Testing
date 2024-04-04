@@ -7,16 +7,20 @@ describe('Tests for delivery methods', () => {
 
     const loginpage=new LoginPage
     const makeOrder= new MakeOrder
+    let testData:any
 
-  beforeEach(() =>{
-    // cy.loginUsingSettingUpToken();
-    loginpage.actions.visit()
-    loginpage.actions.fillTheUsername()
-    loginpage.actions.fillThePassword()
-    loginpage.actions.clickSubmitButton()
+  before(() =>{
+    cy.fixture('AddToCart').then((data)=>{
+      testData=data;})
   })
 
-
+  beforeEach(() =>{
+    loginpage.actions.visit()
+    loginpage.actions.fillTheUsername(testData.username)
+    loginpage.actions.fillThePassword(testData.password)
+    loginpage.actions.clickSubmitButton()
+    
+  })
 
   it('test 1. pick-up point delivery ', function() {
     makeOrder.actions.visit()
@@ -59,6 +63,3 @@ describe('Tests for delivery methods', () => {
 
 
 })
-      
-//npx cypress open --config baseUrl=https://dev.dmms.kz/work-tasks-master/main --env username=test@test.ru,password=Qwerty12
-//https://dev.dmms.kz/work-tasks-master/main

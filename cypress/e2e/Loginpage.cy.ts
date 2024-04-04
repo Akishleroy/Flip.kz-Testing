@@ -3,15 +3,21 @@ import { LoginPage } from "../pages/LoginPage"
 
 describe('Logining Tests', () => {
 
-    const loginpage=new LoginPage
+  const loginpage=new LoginPage
+  let testData:any
+
+
+  before(() => {
+    cy.fixture('LoginPage').then((data)=>{
+      testData=data;})
+  })
+
 
   it('passes', function() {
     loginpage.actions.visit()
-    loginpage.actions.fillTheUsername()
-    loginpage.actions.fillThePassword()
+    loginpage.actions.fillTheUsername(testData.username)
+    loginpage.actions.fillThePassword(testData.password)
     loginpage.actions.clickSubmitButton()
   }); 
 })
       
-//npx cypress open --config baseUrl=https://dev.dmms.kz/work-tasks-master/main --env username=test@test.ru,password=Qwerty12
-//https://dev.dmms.kz/work-tasks-master/main

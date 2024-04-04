@@ -25,16 +25,6 @@ export class LoginPage extends BasePage {
         saveAndPay:()=>cy.get('[class="nbtn yellow accepted_mark"]').first(),
 
 
-
-
-
-        
-
-
-
-
-
-
        
     };
 
@@ -44,12 +34,12 @@ export class LoginPage extends BasePage {
             cy.visit('https://www.flip.kz/user?password')
         },
 
-        fillTheUsername:()=>{
-            this.getters.usernameField().type("azhankebaev@gmail.com")
+        fillTheUsername:(username:string)=>{
+            this.getters.usernameField().type(username)
         },
 
-        fillThePassword:()=>{
-            this.getters.passwordField().type("Miras2004")
+        fillThePassword:(password:string)=>{
+            this.getters.passwordField().type(password)
         },
 
         clickSubmitButton:()=>{

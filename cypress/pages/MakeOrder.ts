@@ -7,9 +7,6 @@ export class MakeOrder extends BasePage {
         selectAndContinueButton:() =>cy.get('[class="nbtn accepted_mark yellow"]'),
         courierDeliveryButton:() => cy.get('[class="nbtn yellow accepted_mark"]').last(),
         kazpostDeliveryButton:() => cy.get('.item-2 > .table > .cell > .nbtn')
-
-
-
     };
 
     
@@ -45,7 +42,6 @@ export class MakeOrder extends BasePage {
         selectKazpostDelivery:()=>{
             this.getters.kazpostDeliveryButton().click({force:true})
         }
-
 
     };
 }
